@@ -45,7 +45,49 @@ Promise.prototype.then = function(onFulfilled,onRejected) {};
 - then方法的第一个参数是Resolve状态的回调函数，第二个参数（可选）是Rejected状态的回调函数。
 
 
+#### `Promise.prototype.catch()`
 
+- `Promise.prototype.catch`方法是`.then(null, rejection)`的别名，用于指定发生错误时的回调函数。
+
+```
+new Promise(function (resolve, reject) {
+    let timeout = Math.random() * 2;
+    log(`set timeout to: ${timeout} seconds`);
+    if(timeout < 1) {
+        log('call resolve()');
+        resolve('200 OK');
+    } else {
+        log('call reject()');
+        reject(`timeout ${timeout} seconds`);
+    }
+}).then(function (r) {
+    log(r)
+}).then(null, function (err) {
+    log(err);
+});
+
+```
+
+- 也可以这样写
+
+```
+new Promise(function (resolve, reject) {
+    let timeout = Math.random() * 2;
+    log(`set timeout to: ${timeout} seconds`);
+    if(timeout < 1) {
+        log('call resolve()');
+        resolve('200 OK');
+    } else {
+        log('call reject()');
+        reject(`timeout ${timeout} seconds`);
+    }
+}).then(function (r) {
+    log(r)
+}).catch(function (err) {
+    log(err);
+});
+
+```
 
 
 
