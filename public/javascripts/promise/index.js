@@ -27,6 +27,7 @@ new Promise(function (resolve, reject) {
         log('call reject()');
         reject(`timeout ${timeout} seconds`);
     }
+
 }).then(function (r) {
     log(r)
 }).then(null, function (err) {
