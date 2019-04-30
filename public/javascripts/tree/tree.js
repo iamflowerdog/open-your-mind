@@ -60,7 +60,7 @@ let treeData = [
     id: 100
   }
 ]
-let currentId = 100  // 当前id
+let currentId = 12  // 当前id
 let arr = [] // 定义数组，存放当前id的直系父ids
 
 /**
@@ -73,11 +73,13 @@ function getParentsIds(data) {
     let temp = data[i]
     if (temp.id == currentId) {
       arr.push(temp.id);
+      console.log(temp.id)
       return 1
     }
     if (temp && temp.sub && temp.sub.length > 0) {
       let t = getParentsIds(temp.sub)
       if (t == 1) {
+        console.log(temp.id)
         arr.push(temp.id)
         return 1
       }
