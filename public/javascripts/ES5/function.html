@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MrYanG</title>
+</head>
+<body>
+<script type="text/javascript">
+
+  function sayName(obj) {
+    // obj.name = 'axe';
+    obj = {};
+    obj.name = 'test';
+  }
+  let obj = {
+    name: 'yyh'
+  };
+  sayName(obj);
+
+  obj.__proto__.sayHi = function (name) {
+    console.log(name);
+  };
+
+  console.log(obj.hasOwnProperty('name'));
+
+</script>
+</body>
+</html>
